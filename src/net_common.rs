@@ -1,7 +1,10 @@
 use crate::game::{self, Building, GameReadiness, Player};
 use macroquad::{color::Color, math::Vec2};
 use serde::{Deserialize, Serialize};
-use std::sync::{Arc, Mutex};
+use std::{
+    net::Ipv4Addr,
+    sync::{Arc, Mutex},
+};
 
 //Alternative to Vec2 which is sendable over threads and can be serialised for network
 #[derive(Serialize, Deserialize, Copy, Clone)]
@@ -31,10 +34,10 @@ impl NetPosition {
 //Same for colour
 #[derive(Serialize, Deserialize, Copy, Clone)]
 pub struct NetColour {
-    r: f32,
-    g: f32,
-    b: f32,
-    a: f32,
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
 }
 
 impl NetColour {
@@ -146,13 +149,6 @@ pub enum Commands {
     AddPlayer(NetPlayer),
     RemovePlayer(u8),
     AllowClientReady(u8),
-}
-
-pub struct ClientSettings {
-    pub name: String,
-    pub colour: Color,
-    pub ip: String,
-    pub port: u16,
 }
 
 //Set an error on game state

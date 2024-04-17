@@ -5,7 +5,8 @@ use std::{
 
 use macroquad::{
     audio::{self, set_sound_volume},
-    prelude::*, text,
+    prelude::*,
+    text,
 };
 
 use crate::net_common::{NetBuilding, NetPlayer, NetPosition};
@@ -31,7 +32,16 @@ impl Player {
         );
         let font_size = 17;
         let t_size = measure_text(&self.name, None, font_size, 1.0);
-        draw_text_ex(&self.name, pos.x - t_size.width/2.0 + self.get_width()/2.0, pos.y - 10.0 , TextParams{font_size, color: WHITE, ..Default::default()});
+        draw_text_ex(
+            &self.name,
+            pos.x - t_size.width / 2.0 + self.get_width() / 2.0,
+            pos.y - 10.0,
+            TextParams {
+                font_size,
+                color: WHITE,
+                ..Default::default()
+            },
+        );
         draw_rectangle(pos.x, pos.y, self.get_width(), head_height, BEIGE);
     }
 
@@ -153,17 +163,16 @@ impl GameObject {
             y: screen_height() / 2.0,
         };
         let diff = centre - player_pos;
-        
+
         for i in &self.buildings {
             i.draw(diff);
         }
-        
+
         for i in &self.audio_sources {
             i.draw(diff);
         }
-        
-        for (n, i) in &self.players {
 
+        for (n, i) in &self.players {
             //Draw other players
             if n != &self.own_player {
                 i.draw(diff);
