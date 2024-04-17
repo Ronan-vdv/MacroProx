@@ -4,7 +4,6 @@ MacroProx is a multiplayer game built in Rust using [Macroquad](https://macroqua
 
 Any optimisations and general improvements to the codebase will eventually be reflected on this repo. Several things aren't ideal at the moment.
 
-
 ![MacroProx Image](https://github.com/Ronan-vdv/MacroProx/blob/master/GHAssets/MP1.png?raw=true)
 
 # Features
@@ -23,12 +22,11 @@ The main purposes of this project are:
 
 ## Planned Features
 
-- A better way to handle menus
 - Message queue to display on screen (player joins, leaves etc)
 - Interpolation between states for other players, to emulate smooth movement with fewer updates instead of constantly sharing changed state over the network almost every frame (likely to be inspired by [Valve's architecture](https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking))
 - And of course the actual proximity chat
 - Then anything else I might feel like when I've reached those goals, like items or events or whatever
 
 ## Running
-You should be able to run this with an installation of Rust 1.76 or higher. `cargo run` should download all dependencies, compile and run it.
 
+You should be able to run this with an installation of Rust 1.76 or higher. `cargo run` should download all dependencies, compile and run it. Tested on Ubuntu 20.04.
