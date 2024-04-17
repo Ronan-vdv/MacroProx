@@ -345,7 +345,7 @@ fn own_changes_to_state(game: &GameObject, state_lock: &mut Arc<Mutex<GameState>
     drop(state);
 }
 
-#[macroquad::main("Testing Some Things")]
+#[macroquad::main("MacroProx")]
 async fn main() {
     set_pc_assets_folder("assets");
     let base_speed = 250.0;
